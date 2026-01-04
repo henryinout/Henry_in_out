@@ -7,16 +7,15 @@ This repository serves as a technical supplement to my Common App application. I
 
 ---
 
-## 📂 Repository Structure
+## Repository Structure
 
 ### 1. `Tournament_Algorithm` (Project: Phigros Master Tournament)
 > *Referenced in "Additional Information" & "Supplementary Essay"*
 
 * **Context:** Algorithmic solution for fairness in a large-scale (300+ participants) rhythm game tournament.
 * **Key Files:**
-    * `ModiElo.cpp`: Implementation of the modified **Elo Rating System** adapted for 4-player matches.
-    * `scheduling_logic.py`: Utilization of **Buchholz Score** to prevent repetitive matchups.
-* **Impact:** This system successfully managed the "Phigros Master Tournament," ensuring mathematical fairness in a chaotic environment.
+    * `ELO Algorithm.cpp`: Implementation of the modified **Elo Rating System** adapted for 4-player matches.
+    * `Contest.csv` `datalist.csv` `dataoutput.csv`: Prerequisites & Results of the code.
 
 ### 2. `Research_Optimization` (Computational Geometry & Combinatorics)
 > *Referenced in Activity List: "Research in Computational Geometry"*
@@ -24,23 +23,19 @@ This repository serves as a technical supplement to my Common App application. I
 * **Projects:**
     * **Akari Solver:** Source code for "Optimization by Analogy w/ Art Gallery Problem." Implements triangulation and iteration methods.
     * **Set Cover & FPP:** Python implementation of the **Integer Linear Programming (ILP)** model used in my "Football Lottery Profit Strategy" paper.
-* **Note:** These scripts demonstrate the computational verification of the theoretical models discussed in my research papers.
 
 ### 3. `Math_Foundations` (Self-Study Notes)
 > *Referenced in "Why Major" Essay*
 
-* **Content:** Detailed LaTeX notes from my self-study of **Set Theory** and **Model Theory**.
-* **Highlight:** Please see `Section_3_LST.pdf` for my derivation and philosophical commentary on the **Löwenheim-Skolem Theorem**, which directly inspired my personal statement regarding "relativistic truth."
-* **Format:** Compiled PDF + `.tex` source files.
+* **Content:** LaTeX notes from my self-study of **Set Theory** and **Model Theory**.
 
 ### 4. `Puzzle_Design` (Malody & Logic Puzzles)
-> *Referenced in "CMU Community" Essay*
+> *Referenced in "Malody Puzzle Hunt Activity*
 
 * **Context:** A portfolio of logic puzzles designed for the Malody community, integrating music theory with cryptography.
 * **Contents:**
     * `Design_Notes.md`: A breakdown of the logic construction behind the puzzles.
     * `Solution_S1.pdf`: Walkthrough for Section 1 of the Christmas Event.
-* **Goal:** To demonstrate how abstract structural logic can be gamified for community engagement.
 
 ---
 
@@ -55,5 +50,5 @@ I have hidden a small, logic-based "Easter Egg" within the `Welcome` directory o
 
 ---
 
-*Contact: [Your Email]*
+*Contact: [henry_in_out@163.com]*
 *Last Updated: January 2026*
