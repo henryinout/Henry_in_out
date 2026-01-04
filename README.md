@@ -21,13 +21,15 @@ This repository serves as a technical supplement to my Common App application. I
 > *Referenced in Activity List: "Research in Computational Geometry"*
 
 * **Projects:**
-    * **Akari Solver:** Source code for "Optimization by Analogy w/ Art Gallery Problem." Implements triangulation and iteration methods.
-    * **Set Cover & FPP:** Python implementation of the **Integer Linear Programming (ILP)** model used in my "Football Lottery Profit Strategy" paper.
+    * `Akari_Research.py`: Source code for "Optimization by Analogy w/ Art Gallery Problem." Implements SAT solver and iteration methods.
+    * `Mathematical Research to Football Pool Problem`: Research Paper, Included Code at Bottom of Paper.
 
-### 3. `Math_Foundations` (Self-Study Notes)
-> *Referenced in "Why Major" Essay*
+### 3. `Other Material` (Self-Study Notes)
+> *I always love Mathematic Logic*
 
-* **Content:** LaTeX notes from my self-study of **Set Theory** and **Model Theory**.
+* **Content:**
+   * **Math Related:** LaTeX notes from my self-study of **Set Theory**.
+   * **Design Related:** Past designs of tournaments, merchandises, etc.
 
 ### 4. `Puzzle_Design` (Malody & Logic Puzzles)
 > *Referenced in "Malody Puzzle Hunt Activity*
