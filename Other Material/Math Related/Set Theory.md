@@ -1,0 +1,278 @@
+# I. 数理逻辑与集合论
+## $\mathsf{I.1}$ 与, 或, 非
+
+- **命题: 可以被判定真伪的事**
+	- **命题要么是true, 要么是false**
+	- 用 $p$ 表示(proposition)
+	-  $p \in \{T, F\}$
+	- $\mathrm{def} \ p  \Leftrightarrow p=T$
+- 逻辑运算
+	- 非 $\neg$
+		- 证明 $\neg \ p$ $\Leftrightarrow$ 证伪 $p$
+		- 证伪 $\neg \ p$ $\Leftrightarrow$ 证明 $p$
+		- $\mathrm{def}\ \  a \nless b \Leftrightarrow \neg \ a \le b$ 
+		- $\color{Pink}\text{证明两个命题等价} \Leftrightarrow \text{两个命题的真值表永远相等}$
+	- 与 $\vee$ 
+	- 或 $\wedge$
+	- 满足运算律:
+		- 1. 交换律
+		- 2. 结合律 (同符号)
+		- 3. 分配律
+			- $\wedge$ 对 $\vee$ 满足分配律
+				- $p \wedge (q \vee r) \Leftrightarrow (p \wedge q) \vee (p \wedge r)$
+			- $\vee$ 对 $\wedge$ 满足分配律
+				- $p \vee (q \wedge r) \Leftrightarrow (p \vee q) \wedge (p \vee r)$
+	- De Morgan 律
+		- $\neg ( p \wedge q ) \Leftrightarrow \neg p \vee \neg q$
+		- $\neg ( p \vee q ) \Leftrightarrow \neg p \wedge \neg q$
+## $\textsf{I.2}$ 推出和等价 (疑似有错误)
+- $\Rightarrow$ 一个二元运算 <- 应该是蕴含
+- $p \Rightarrow q$
+- $\color{Pink} \neg (p \Rightarrow q) \Leftrightarrow ( p \nRightarrow q)$ 
+- $p \Rightarrow q$  $如果p成立,那我保证q也一定成立$
+- 当且仅当 $p=T , q=F$ 时取$F$
+	- $p = T, q = T$ 符合
+	- $p = F, q = T/F$ 我的题设都不对，所以q成不成立都无所谓了
+- Exercise: 
+	- $(p \Rightarrow q)$
+	- $\Leftrightarrow \neg(\neg(p\Rightarrow q))$
+	- $\Leftrightarrow \neg ( p \wedge \neg q)$
+	- $\Leftrightarrow \neg p \vee \neg (\neg q)$
+	- $\Leftrightarrow \neg p \vee q$
+	- $\color{Pink} (p \Rightarrow q) \Leftrightarrow (\neg p \vee q)$ 推出律 (Implication Law)
+- $T \Rightarrow T$  $T \nRightarrow F$  $F \Rightarrow T$  $F \Rightarrow F$
+	- vacantly true   
+	- $\color{Pink}1+1=3 \Rightarrow \text{Riemann's Hypothesis}$ 为真
+$$\color{Lightblue}(p \ \wedge\ (p \Rightarrow q)) \Rightarrow q \text{ is always True}$$
+前提是对的，推论是对的，结论也一定是对的
+## $\textsf{I.3}$ EXTRA From WXSC
+- 逆命题 否命题 逆否命题
+	- Converse of $A \Rightarrow B$
+		- $B \Rightarrow A$
+	- Inverse of $A \Rightarrow B$
+		- $\neg A \Rightarrow \neg B$
+	- Contrapositive of $A \Rightarrow B$
+		- $\neg B \Rightarrow \neg A$
+		
+
+# II. 集合论 (ZFC集合论)
+## $\textsf{II.1}$ 公理
+
+- **外延公理**
+	- 外延公理想说什么时候两个集合是相等的。
+$$(X=Y) \Leftrightarrow \forall x(x \in X \Leftrightarrow x\in Y)$$
+- 分离公理
+	- 分离公理是对概括公理的一个改进，也是构造一个集合的主要方法
+	- $\color{Pink} \text{X是一个集合, P(x)是一个命题, 则X中满足P(x)的集合构成一个集合}$
+$$\{x \in X | P(x)\} \text{是一个集合}$$
+	- 高中学习的标准写法
+- 空集的定义
+	- $\text{Let X be a set, then, } \{x \in X | x \neq x\} = \emptyset_X \hspace{2em} \leftarrow$ $\text{依赖于X的空集}$
+	- 根据外延公理, $\emptyset_X = \emptyset_Y \Rightarrow \emptyset \hspace{2em} \leftarrow$ 空集
+- 交集、差集和子集的定义
+	- 对于两个集合$X$和$Y$, 
+		- 定义他们两个的交集$X \cap Y = \{x \in X | x \in Y\}$
+		- 定义他们两个的差集$X - Y = \{x\in X | x \notin Y\}$
+		- 定义子集为 $X\subset Y \Leftrightarrow x \in X \Rightarrow x \in Y$
+- 并集公理
+	- $\color{Pink} \text{因为分离公理没有方法讲一个集合变大,所以需要一条新的公理}$
+$$\forall X \exists Y \forall z(z \in Y \Leftrightarrow \exists w(z \in w \wedge w \in X))$$
+	- 我们需要三个集合
+		- 1. 原始集合 - $X$
+		- 2. 最终的并集 - $Y$
+		- 3. 用于限制的条件 - $Z$
+	- 这里的解释是: 对于任意的一个集合X(里边有很多集合), 存在一个Y, 使得对于任意一个属于Y的元素z, 都有z属于一个属于X的集合w。
+- 幂集公理
+	- 较为尴尬，现在集合可以只有一个空集...
+$$\forall X \exists Y (x \subset X \Leftrightarrow x \in Y)$$
+	- 从空集出发 $0 \rightarrow 1 \rightarrow 2 \rightarrow 4 \rightarrow 16 \rightarrow 65536$
+	- 由分离公理可以得出全部大小的集合存在
+	- Y记为P(X), 称为X的幂集
+- 无穷公理
+	- 有限个元素的集合已经存在了，无限多个能存在吗?
+$$\exists X(\emptyset \in X) \wedge (x \in X \Rightarrow P(x) \in X)$$
+	- 存在一个集合$X$，使得空集属于$X$，并且对于任意一个属于$X$的元素$x$，都有$x$的幂集属于$X$
+- 配对公理
+	- $\color{lightblue} \text{Cartesian Product}$ : 构造一个有序数对
+		- e.g. {1, 2, 3, 4, $\cdots$ } $\rightarrow$ $(1, 2)$
+	- ZFC公理首先令我们构造一个无序的数对
+$$\forall X\forall Y \exists Z((x=X\vee x=Y) \Leftrightarrow x \in Z)$$
+	- 对于任意的 $X$ 和 $Y$ ，都存在一个集合 $Z$ 使得 $X$ 和 $Y$ 的所有元素都在 $Z$ 中...?
+	- 对于任何两个已有的集合，我们总能找到一个新的集合，这个新集合里恰好只包含这两个集合作为其元素。
+- 正则公理
+	- 我们在定义了常见的集合后，接下来的目标是避免 $Russell$ 悖论。
+	- $\color{lightblue} \text{不存在由所有集合组成的集合}$
+	- 我们需要否定掉所有 "套娃" 的形式
+$$\forall X (X \neq \emptyset)\ \exists Y ((Y \in X) \wedge (X \cap Y = \emptyset))$$
+	- 对于任何 $X$ 都存在 $Y$ , 使得 $Y$ 在 $X$ 中, 并且 $X \cup Y = \emptyset$
+	- 正则公理的几个推论
+		- 定理: 不存在集合满足 $X = \{X\}$
+		- 证明: 
+			- 假设存在这样一个集合，使得$X = \{X\}$
+			- 由于$X \in X$，因此 $X$ 非空。
+			- 令$Y \in X$，由正则公理，故存在 $Y \cap X = \emptyset$
+			- 由于 $X$ 仅有一个元素 $X$   $\therefore Y=X$
+			- 运用正则公理: $Y \cap X = X \cap X = \emptyset$
+			- 然而，$X \cap X = X$
+			- $\therefore X = \emptyset$     又 $\because$ $X$ 非空
+			- $\color{lightblue} \text{Contradict!}$
+			- 因此，原假设有错，所以不存在一个集合，使得 $X = \{X\}$
+		- 定理: 不存在集合 $X$ 满足 $X\in X$
+		- 证明:
+			- 假设存在这么一个集合 $X$ ，使得$X \in X$
+			- 由分离公理 $Y = \{y \in X \ | \ y = X\}$ 
+			- 由于我们假设了$X \in X$，并且 $y=X$ 是 $Y$ 的条件，因此 $X$ 是 $Y$ 的唯一元素，因此 $Y=\{X\}$
+			- 令$Z\in Y$，由正则公理，故存在$Z \cap Y = \emptyset$，由于 $Y$ 仅有一个元素$X$   $\therefore Z = X$
+			- $\therefore Z \cap Y = X \cap Y = X \cap \{X\} = \emptyset$
+			- 然而，$X \cap \{X\} = \{X\}$
+			- $\{X\} = \emptyset$
+			- $\color{lightblue}\text{Contradict!}$
+			- 因此，原假设有错，所以不存在一个集合，使得 $X \in X \hspace{2em}$  
+		- 定理: 不存在集合 $X_n$ 满足 $X_{n+1} \in Xn$，其中$n$ 是自然数
+		- $\cdots \in X_{n+2} \in X_{n+1} \in X_{n} \in X_{n-1} \in X_{n-2} \in \cdots \in X_0$ is not allowed
+		- $X_0 \in X_1 \in X_2 \in X_3 \in X_4 \in \cdots$ is allowed.
+		- 证明:
+			- 假设存在这样的一个集合序列$X_n$
+			- 设$Y = \{X_n\}$，则 $Y$ 不为空集
+			- 由正则公理，$\exists Z \in Y$, 满足 $Z \cap Y = \emptyset$
+			- 不妨设$Z = X_k,\  k \in \mathbb{N}$
+			- 又因为由定义，我们知道 $X_{n+1} \in X_n$
+			- 由我们的构造，我们知道$X_{k+1} \in Y$，又 $\because Z = X_{k}$
+			- $\because X_{k+1} \in X_k, \ \ X_{k+1} \in Y$
+			- $\therefore X_{k+1} \in (X_k \cap Y)$
+			- $\therefore Z \cap Y \neq \emptyset$
+			- $\color{lightblue} \text{Contradict!}$
+			- 因此，原假设错误，不存在这样的一个集合序列$X_n$
+		- 定理: 不存在集合$X=\{\{X\}\}$
+		- 证明: 
+			- 假设存在集合 $X = \{\{X\}\}$
+			- 令 $Y = \{X\}$ 的集合，因此，$Y \neq \emptyset$
+			- ∵ $X \in Y$
+			- $\because X = \{\{X\}\} \hspace{2em} \therefore Y \in X$
+			- $\therefore X \in Y \in X$
+			- 我们可以将此关系无限延长，得到:
+			- $\cdots \in X \in Y \in X \in Y$
+			- 我们在上一条公理中证明了: 不存在 集合序列 $X_n$ , 使得 $X_{n+1} \in X_n$
+			- 然而，我们构造出来的这一条链符合 $X_{n+1} \in X_n$
+			- $\color{lightblue} \text{Contradict!}$
+			- 因此，原假设错误，不存在这样的一个集合 $X$ 使得 $X=\{\{X\}\}$
+## II.2 二元运算
+
+- **Cartesian积
+	- 设 $X$ 和 $Y$ 是两个集合，$x\in X，y \in Y$，由配对公理 $\{x, y\}$ 是一个集合。称为 $x, y$ 的无序数对；同样由配对公理 $\{\{x\},\{x,y\}\}$ 是一个集合，称为 $x, y$ 的有序数对，记为 $(x, y)$
+	- **定义 $(x, y) \coloneqq \{\{x\},\{x,y\}\}$   $\leftarrow \text{No reason, just a definition.}$
+	- 由分离公理和幂集公理，我们可以得到：$$\{a\in P(P(X\cup Y))\ | \ \exists x \exists y, a = (x, y)\} $$ 是一个集合，我们定义这是 $X$ 和 $Y$ 的Cartesian积，记为 $X \times Y$ 。
+		- 这一长串式子其实就是 $X \times Y$ 的定义，即: $$(X \times Y) =\{a\in P(P(X\cup Y))\ | \ \exists x \exists y, a = (x, y)\}$$
+		- 从式子中，我们不妨先看 $a$ 是什么，$a \in P(P(X\cup Y))$
+			- $(X\cup Y)$ 为所有由 $X$ , $Y$ 产生的有序对 $(x,y)$ 中所有可能会用到的元素的一个大集合。
+			- $P(X \cup Y)$ 为他的幂集，以下这些元素都包含在其中: $\{\{x\}, \{y\}, \{x,y\}, \cdots \}$
+			- $P(P(X \cup Y))$ 为幂集的幂集，以下这些元素都包含在其中: $\{\{\{x\}, \{x,y\}\}\cdots\}$ 
+			- 因此，$a \in P(P(X\ cup Y))$ 划定了他的范围
+		- 接下来，$\color{lightblue} \text{what the fuck is} \exists x \exists y, a = (x,y) \text{?}$
+			- 我们刚刚划定了这个集合的范围 $a$ , 我们需要的是 , 从里边把符合条件的挑出来，也就是 $\exists x \exists y, a = (x,y)$ 。
+			- Question: 这里难道不应该是 $\exists x \in X, \exists y \in Y$ 吗???
+			- Gemini: 非常传神!
+		- 所以我们的定义就回归到了: $$(X \times Y) =\{a\in P(P(X\cup Y))\ | \ (\exists x \in X)(\exists y \in Y), a = (x, y)\}$$
+	- 引理: $(x_1, y_1) = (x_2, y_2) \Leftrightarrow (x_1 = x_2) \wedge (y_1 = y_2)$ 
+	- 应用: 
+		- $\color{lightblue} \text{e.g.}$ 设 $R$ 为实数轴，则是 $R^2 = R \times R$ 为二维平面
+		- 定理: $X \times \emptyset = \emptyset \times X = \emptyset$
+			- 证明: 
+			- 我们先尝试证明 $X \times \emptyset = \emptyset$
+				- 假设$X \times \emptyset \neq \emptyset$
+				- 那么，根据非空集合的定义，至少存在一个元素 $p$ , 使得 $p \in X \times \emptyset$
+				- 因此，我们可以将 $p$ 表达成 $(x,y)$ , 其中 $x \in X, y \in \emptyset$
+				- 然而，由空集的定义，空集不包含任何元素，因此 $y \notin \emptyset$
+				- $\color{lightblue} \text{Contradict!}$
+				- 因此，原假设有误，$X \times \emptyset = \emptyset$
+			- $\emptyset \times X = \emptyset$ 的证明和上述一样，仅需把证明过程中的 $x, y$ 调换即可。
+		- 定理: $(X \times \{\emptyset\}) \cup (Y \times \{\{\emptyset\}\})$ 是 $X$ 和 $Y$ 的不交并，记为 $X \sqcup Y$
+			- 由于 $\{\emptyset\} \neq \{\{\emptyset\}\}$, 所以 $X$ 和 $Y$ 中重复的元素在 $\cup$ 之后会由于Cartesian积被分离开。
+- **二元关系
+	- 定义: $R \subset X \times Y$ 称为 $X$ 和 $Y$ 之间的一个二元关系，当$(x,y) \in R$ 时，我们记为 $xRy$ 。如果 $X = Y$，我们称 $R$ 为 $X$ 上的一个二元关系。
+	- **等价关系
+		- 定义: 设 $R$ 为 $X$ 上的一个二元关系，如果 $R$ 满足: 
+			- 自反性: $xRx$
+			- 对称性: $xRy \Leftrightarrow yRx$
+			- 传递性: $(xRy) \wedge (yRz) \Rightarrow xRz$
+			- 那么我们就称 $R$ 是一个等价关系。
+		- 我们将等价关系记为 $\sim$
+		- 命题: 对称性 + 传递性 $\Rightarrow$ 自反性。
+			- 证明:
+			- 设 $x \sim y$
+			- 由对称性 $y \sim x$
+			- 由传递性 $x \sim x$
+		- **等价类
+			- $\sim$ 为 $X$ 上的一个等价关系，$x \in X，[x] = \{y \in X | x \sim y\}$ 称作 $x$ 所在的等价类，$x$ 称为 $[x]$ 的代表元...?
+			- 定理: 若 $x$ 和 $y$ 在同一个等价类中，那么 $x \sim y$ 
+			- 定理: $x \sim y \Leftrightarrow [x] = [y]$
+		- **商集
+			- 定义: $\sim$ 为 $X$ 上的一个等价类，$\{[x] \in P(X)| x \in X\}$ 称为 $X$ 相对于 $\sim$ 的商集，记为$X/\sim$ 。![[Pasted image 20250529102046.png]]
+		- $\color{Lightblue}\textbf{不变量}$
+			- 定义: $\sim$ 为 $X$ 上的一个等价关系，$x, y \in X$，$f$ 是 $X$ 上的函数，若 $x\sim y \Leftrightarrow f(x) = f(y)$ ，则称 $f$ 是在 $\sim$ 下的不变量。
+			  也就是说，比如说我们对一个东西进行运算，比如说一个直线的斜率，假如说他们的斜率相等，那么我们可以推出来他们有平行关系。 
+			- 也就是相当于不变量在说明的是这个商集的标签。
+	- **偏序关系
+		- 定义：设 $R$ 为 $X$ 上的一个二元关系，如果 $R$ 满足：
+			- 自反性: $xRx$
+			- 反称性: $(xRy) \wedge (yRx) \Rightarrow x=y$
+			- 传递性: $(xRy) \wedge (yRz) \Rightarrow xRz$
+			- 则称 $R$ 是一个偏序关系。我们将偏序关系记为 $\preceq$
+		- 定义：设 $\preceq$ 为 $X$ 上的一个偏序关系，如果 $\preceq$ 满足：
+			- 全序性 $(x \preceq y) \vee (y \preceq x)$
+			- 则称 $\preceq$ 是一个全序关系。
+			- 也就是说，偏序关系的意思是这个二元关系在给这个集合 $X$ 中的元素比较大小，全序关系的意思是 $X$ 对于 $\preceq$ 这个二元关系来说，$X$ 中的每一个元素都能被 $\preceq$ 决定顺序。
+		- 引申
+			- 最大(小)元 / 极大(小)元 / 上(下)界
+				- **定义:** 对于一个偏序关系 $( X , \preceq)$，如果存在一个 $y \in X$ 对于所有 $x \in X$，都有 $x \preceq y$ 那么称 $y$ 为 $x$ 的最大元
+				- **定义:** 对于一个偏序关系 $( X , \preceq)$，如果对于一个 $x_{max} \in X$ ，$\neg \exists y \in X (y \neq x_{max})$ 使得 $x_{max} \preceq y$ 那么称 $x_{max}$ 为 $X$ 的极大元
+				- **定义:** 对于一个偏序关系 $(X, \preceq)$，如果存在一个 $y \in Y$ 对于所有 $x \in X$，都有$x \preceq y$
+				- 那么称 $y$ 为 $x$ 的上界
+				- 总的来说:
+					- 最大元: 必须包括集合里边的所有元素，比所有的元素都"大"。
+					- 极大元: 必须是这个集合里边较大的元素，不存在比他还"大"的元素。(但是它可以不是最大的)
+					- 上界: 可以不是这个集合中的元素，但是一定是比该集合中所有元素都"大"。
+					- 这里所有的 "大" 代表 $\preceq$ 。
+				- 最典型的代表: $X$ 是一个集合，$(P(x), \subset)$ 是一个非空偏序集，$X$ 是极大元，也是上界，同时他也是一个最大元。
+			- 全序子集
+				- $(X, \preceq)$ 是一个非空偏序集，$Y \subset X$，如果 $(Y，\preceq)$ 是一个非空全序集，那么称 $Y$ 是 $X$ 的一个全序子集。
+				- 例子: 自然数集 $\mathbb{N^*}$ 是一个非空偏序集，一个质数的所有幂次所构成的集合构成了自然数集的一个全序子集。
+## II.3 函数关系
+
+- **函数关系
+	- 设 $R$ 是在 $X$ 和 $Y$ 上的一个二元关系，如果满足: $$(xRy_1) \wedge (xRy_2) \Rightarrow y_1=y_2$$那么我们就称 $R$ 是一个函数关系
+	- 我们要求的对应关系是对于一个给定的 $x$ 我们这个二元关系 $R$ 仅能给他对应到一个数上
+	- 我的理解是 比如说 $R$ 如果被理解成一个函数的话，$xRy$ 当且仅当 $y=f(x)$ 的时候值为真。
+	- 我们记 $f \subset X \times Y$ 为: $$f:X \rightarrow Y, x \mapsto y \hspace{2em} \color{lightblue} \mapsto \text{: maps to 映射到}$$
+- **替代公理 
+	- $X \text{是一个集合, } x \in X, P(x,y)\text{ 是一个命题, 若} (P(x,y_1)\wedge P(x,y_2)) \Rightarrow y_1=y_2$
+	- $\text{则} \{y|\exists x (P(x,y))\} \text{是一个集合}$
+		- 怎么说呢....这个东西其实就是告诉了我们给定一个集合 $X$ 和在 $X$ 上的函数 $xPy$ ，那么我们可以确定 $Y$ 是一个集合,,
+		- 其实就是一个集合可以通过一个函数映射到另一个集合
+		- 比如说假如奇数已经是一个集合了，那么我们通过 $f(x) = x+1$ 就可以证明偶数也是一个集合
+	- 替代公理 $\rightarrow$ 分离公理
+		- $\color{lightblue} 待补充$
+- **函数关系
+	- 定义: 设 $f: X \rightarrow Y$ 为一个函数。
+		- 单射: 如果 $f$ 满足 $(f(x_1)=y)\wedge (f(x_2)=y) \Rightarrow x_1 = x_2$，那么我们称 $f$ 是一个单射
+			- 我们的条件: $f: X \rightarrow Y$ 为一个函数
+			- 那么，通过这个条件我们就知道了，对于同样的 $x \in X$，我们总能保证 $\exists y \in Y$ 使得 $f(x) = y$，其中，这个 $y$ 是唯一的。
+			- 单射的条件满足了什么呢？
+			- 每一个 $x$ 都唯一的对应到了一个不同的 $y$
+			- 换而言之，函数让我们知道了每一个 $x$ 都会有一个唯一的能对应到的 $y$，而单射保证了这样的映射对于每一个 $x$ 都是唯一的，不会存在两个不同的 $x$ 映射到了一个相同的 $y$ 上。
+		- 满射: 如果 $f$ 满足 $\forall y \exists x (f(x) = y)$，则称 $f$ 是一个满射。
+			- 如果对于任意一个 $y$ 都存在一个 $x$ 使得 $f(x)=y$，那么也就是说，$Y$ 中的任意一个元素都可以找到有一个 $x$ 满足 $f(x)=y$
+			- 函数满足了对于全部的 $x$ 都会有一个唯一能对应的 $y$，而满射保证了 $Y$ 里边的所有的 $y$ 都被我们的映射占满了，这里可以有两个不同的 $x_1$ $x_2$ 占据了一个 $y$，表达的意思只是说全部的 $y$ 都会被用到。
+		- 双射: 如果 $f$ 即是单射又是满设，则称 $f$ 是一个双射。
+			- 这里的感觉就是 $A \subset B, \ B \subset A \Rightarrow A = B$ 的意思
+			- 单射满足的是每一个不同的 $x$ 都会被映射到一个不同的 $y$
+			- 而满射又保证了全部的 $y$ 都被用上了
+			- 也就是说，又单射又满射，$X$ 和 $Y$ 之间建立起了一个良好的一一对应的关系，不重不漏。
+	- **单射左逆
+		- $f: X \rightarrow Y$ 为一个单射，则存在一个满射 $g: Y \rightarrow X$，使得 $g \circ f: X \rightarrow X, x \mapsto g(f(x)) = 1_X$
+		- 其中，$1_X: X \rightarrow X, x \mapsto x$
+
+	- **满射右逆
+		- 需要选择公理证明
+	- ...这玩意怎么证..?
+	- 这两个怎么证...?
